@@ -1,24 +1,54 @@
-<html>
-  <head>
-    <title>
-      Psychology Textbook
-    </title>
-  </head>
-  <body>
-    <h1>Psychology Textbook</h1>
-    <a href="Chapter1.pdf">Chapter 1</a><br/>
-    <a href="Chapter2.pdf">Chapter 2</a><br/>
-    <a href="Chapter3.pdf">Chapter 3</a><br/>
-    <a href="Chapter4.pdf">Chapter 4</a><br/>
-    <a href="Chapter5.pdf">Chapter 5</a><br/>
-    <a href="Chapter6.pdf">Chapter 6</a><br/>
-    <a href="Chapter7.pdf">Chapter 7</a><br/>
-    <a href="Chapter8.pdf">Chapter 8</a><br/>
-    <a href="Chapter9.pdf">Chapter 9</a><br/>
-    <a href="Chapter10.pdf">Chapter 10</a><br/>
-    <a href="Chapter11.pdf">Chapter 11</a><br/>
-    <a href="Chapter12.pdf">Chapter 12</a><br/>
-    <a href="Chapter13.pdf">Chapter 13</a><br/>
-    <a href="Chapter14.pdf">Chapter 14</a><br/>
-  </body>
+<html ng-app="listApp">
+    <head>
+        <title>Psychology Book</title>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/cyborg/bootstrap.min.css" rel="stylesheet" integrity="sha384-D9XILkoivXN+bcvB2kSOowkIvIcBbNdoDQvfBNsxYAIieZbx8/SI4NeUvrRGCpDi" crossorigin="anonymous">        
+    </head>
+    <body ng-controller="ListController as ctrl">
+        <br/>
+        <div class="container">
+            <h3>mdc32</h3>
+            <h5>AP Psychology Book</h5>
+            <div class="row">
+                <div class="col-md-6" ng-repeat="list in ctrl.chapters">
+                    <ul class="list-group">
+                        <div></div>
+                        <li ng-repeat="chapter in list" class="list-group-item">
+                            <h6>
+                            <a href="/{{chapter.path}}" class="">{{chapter.title}}</a>
+                            <small>{{chapter.pages}}</small>
+                            </h6>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script>
+            /*global angular*/
+            angular.module("listApp", [])
+                .controller('ListController', [function() {
+                    var self = this;
+                    self.chapters = [[
+                        {title: "Introduction and History of Psychology", pages: "1-25", path: "Chapter1.pdf"},
+                        {title: "Research Methods", pages: "27-59", path: "Chapter2.pdf"},
+                        {title: "Biopsychology and the Foundations of Neuroscience", pages: "61-107", path: "Chapter3.pdf"},
+                        {title: "Sensation and Perception", pages: "109-155", path: "Chapter4.pdf"},
+                        {title: "States of Consciousness", pages: "157-193", path: "Chapter5.pdf"},
+                        {title: "Learning", pages: "195-231", path: "Chapter6.pdf"},
+                        {title: "Cognition", pages: "233-295", path: "Chapter7.pdf"}],
+                        [{title: "Emotion and Motivation", pages: "297-357", path: "Chapter8.pdf"},
+                        {title: "Psychological Development", pages: "359-407", path: "Chapter9.pdf"},
+                        {title: "Personality", pages: "409-449", path: "Chapter10.pdf"},
+                        {title: "Testing and Individual Differences", pages: "451-481", path: "Chapter11.pdf"},
+                        {title: "Psychological Disorders", pages: "483-521", path: "Chapter12.pdf"},
+                        {title: "Therapies for Psychological Disorders", pages: "523-563", path: "Chapter13.pdf"},
+                        {title: "Social Psychology", pages: "565-606", path: "Chapter14.pdf"}
+                        ]];
+                }]);
+        </script>
+    </body>
 </html>
