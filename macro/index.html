@@ -1,25 +1,54 @@
-<html>
-  <head>
-    <title>
-      Macro Textbook
-    </title>
-  </head>
-  <body>
-    <h1>Macro Textbook</h1>
-    <a href="MacroSection01.pdf">Chapter 1</a><br/>
-    <a href="MacroSection02.pdf">Chapter 2</a><br/>
-    <a href="MacroSection03.pdf">Chapter 3</a><br/>
-    <a href="MacroSection04.pdf">Chapter 4</a><br/>
-    <a href="MacroSection05.pdf">Chapter 5</a><br/>
-    <a href="MacroSection06.pdf">Chapter 6</a><br/>
-    <a href="MacroSection07.pdf">Chapter 7</a><br/>
-    <a href="MacroSection08.pdf">Chapter 8</a><br/>
-    <a href="MacroSection09.pdf">Chapter 9</a><br/>
-    <a href="MacroSection10.pdf">Chapter 10</a><br/>
-    <a href="MacroSection11.pdf">Chapter 11</a><br/>
-    <a href="MacroSection12.pdf">Chapter 12</a><br/>
-    <a href="MacroSection13.pdf">Chapter 13</a><br/>
-    <a href="MacroSection14.pdf">Chapter 14</a><br/>
-    <a href="MacroSection14A.pdf">Chapter 14A</a><br/>
-  </body>
+<html ng-app="listApp">
+    <head>
+        <title>AP Macroeconomics Textbook</title>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="https://bootswatch.com/cyborg/bootstrap.min.css" rel="stylesheet">
+    </head>
+    <body ng-controller="ListController as ctrl">
+        <br/>
+        <div class="container">
+            <h3>mdc32</h3>
+            <h5>AP Macroeconomics Textbook</h5>
+            <div class="row">
+                <div class="col-md-6" ng-repeat="list in ctrl.chapters">
+                    <ul class="list-group">
+                        <div></div>
+                        <li ng-repeat="chapter in list" class="list-group-item">
+                            <h6>
+                            <a href="{{chapter.path}}" class="">{{chapter.title}}</a>
+                            <small>{{chapter.pages}}</small>
+                            </h6>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script>
+            /*global angular*/
+            angular.module("listApp", [])
+                .controller('ListController', [function() {
+                    var self = this;
+                    self.chapters = [
+                        [{title: "Basic Economic Concepts", pages: "1-45", path: "MacroSection01.pdf"},
+                        {title: "Supply and Demand", pages: "47-99", path: "MacroSection02.pdf"},
+                        {title: "Measurement of Economic Performance", pages: "101-155", path: "MacroSection03.pdf"},
+                        {title: "National Income and Price Determination", pages: "157-219", path: "MacroSection04.pdf"},
+                        {title: "The Financial Sector", pages: "221-293", path: "MacroSection05.pdf"},
+                        {title: "Inflation, Unemployment, and Stabilization Policies", pages: "295-365", path: "MacroSection06.pdf"},
+                        {title: "Economic Growth and Productivity", pages: "367-407", path: "MacroSection07.pdf"}],
+                        
+                        [{title: "The Open Economy: International Trade and Finance", pages: "409-455", path: "MacroSection08.pdf"},
+                        {title: "Behind the Demand Curve: Consumer Choice", pages: "477-527", path: "MacroSection09.pdf"},
+                        {title: "Behind the Supply Curve: Profit, Production, and Costs", pages: "529-581", path: "MacroSection10.pdf"},
+                        {title: "Market Structures: Perfect Competition and Monopoly", pages: "583-636", path: "MacroSection11.pdf"},
+                        {title: "Appendix", pages: "A1-A76", path: "MacroSection12.pdf"},
+                        {title: "Answers", pages: "A77-A226", path: "MacroSection13.pdf"}]
+                        ];
+                }]);
+        </script>
+    </body>
 </html>
