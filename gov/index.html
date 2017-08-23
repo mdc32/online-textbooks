@@ -1,2 +1,63 @@
-<html>
+<html ng-app="listApp">
+    <head>
+        <title>AP Gov Textbook</title>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="https://bootswatch.com/cyborg/bootstrap.min.css" rel="stylesheet">
+    </head>
+    <body ng-controller="ListController as ctrl">
+        <br/>
+        <div class="container">
+            <h3>mdc32</h3>
+            <h5>AP Gov Textbook</h5>
+            <div class="row">
+                <div class="col-md-6" ng-repeat="list in ctrl.chapters">
+                    <ul class="list-group">
+                        <div></div>
+                        <li ng-repeat="chapter in list" class="list-group-item">
+                            <h6>
+                            <a href="{{chapter.path}}" class="">{{chapter.title}}</a>
+                            <small>{{chapter.pages}}</small>
+                            </h6>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script>
+            /*global angular*/
+            angular.module("listApp", [])
+                .controller('ListController', [function() {
+                    var self = this;
+                    self.chapters = [
+                        [{title: "1: The Study of American Government", pages: "2-15", path: "Chapter01.pdf"},
+                        {title: "2: The Constitution", pages: "16-47", path: "Chapter02.pdf"},
+                        {title: "3: Federalism", pages: "48-74", path: "Chapter03.pdf"},
+                        {title: "4: American Political Culture", pages: "75-92", path: "Chapter04.pdf"},
+                        {title: "5: Civil Liberties", pages: "93-120", path: "Chapter05.pdf"},
+                        {title: "6: Civil Rights", pages: "121-150", path: "Chapter06.pdf"},
+                        {title: "7: Public Opinion", pages: "152-171", path: "Chapter07.pdf"},
+                        {title: "8: Political Participation", pages: "172-189", path: "Chapter08.pdf"},
+                        {title: "9: Political Parties", pages: "190-221", path: "Chapter09.pdf"},
+                        {title: "10: Elections and Campaigns", pages: "222-257", path: "Chapter10.pdf"},
+                        {title: "11: Interest Groups", pages: "258-285", path: "Chapter11.pdf"}],
+                        
+                        [{title: "12: The Media", pages: "286-312", path: "Chapter12.pdf"},
+                        {title: "13: Congress", pages: "314-360", path: "Chapter13.pdf"},
+                        {title: "14: The Presidency", pages: "361-402", path: "Chapter14.pdf"},
+                        {title: "15: The Bureaucracy", pages: "403-430", path: "Chapter15.pdf"},
+                        {title: "16: The Judiciary", pages: "431-460", path: "Chapter16.pdf"},
+                        {title: "17: The Policy-Making Process", pages: "462-484", path: "Chapter17.pdf"},
+                        {title: "18: Economic Policy", pages: "485-505", path: "Chapter18.pdf"},
+                        {title: "19: Social Welfare", pages: "506-523", path: "Chapter19.pdf"},
+                        {title: "20: Foreign and Military Policy", pages: "524-554", path: "Chapter20.pdf"},
+                        {title: "21: Environmental Policy", pages: "555-572", path: "Chapter21.pdf"},
+                        {title: "22: Who Governs? To What Ends?", pages: "574-586", path: "Chapter22.pdf"},]
+                        ];
+                }]);
+        </script>
+    </body>
 </html>
