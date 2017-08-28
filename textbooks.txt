@@ -21,7 +21,7 @@
             {"title": "Appendix", "pages": "781-803", "path": "Chapter14A.pdf"}
         ]
     },
-    "calc": {
+    "calculus": {
         "name": "Single Variable Calculus: Early Transcendentals",
         "author": "James Stewart",
         "class": "AP Calculus BC",
