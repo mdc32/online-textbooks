@@ -21,7 +21,7 @@
             {"title": "Appendix", "pages": "781-803", "path": "Chapter14A.pdf"}
         ]
     },
-    "calculus": {
+    "calc": {
         "name": "Single Variable Calculus: Early Transcendentals",
         "author": "James Stewart",
         "class": "AP Calculus BC",
@@ -110,5 +110,17 @@
             {"title": "Psychological Disorders", "pages": "483-521", "path": "Chapter12.pdf"},
             {"title": "Therapies for Psychological Disorders", "pages": "523-563", "path": "Chapter13.pdf"},
             {"title": "Social Psychology", "pages": "565-606", "path": "Chapter14.pdf"}]
+    },
+    "calc3": {
+        "name": "Calculus: Early Transcendentals",
+        "author": "James Stewart",
+        "class": "Calc 3",
+        "chapters": [
+            {"title": "Vectors and the Geometry of Space", "pages": "791-845", "path": "Chapter12.pdf"},
+            {"title": "Vector Functions", "pages": "847-885", "path": "Chapter13.pdf"},
+            {"title": "Partial Derivatives", "pages": "887-986", "path": "Chapter14.pdf"},
+            {"title": "Multiple Integrals", "pages": "987-1066", "path": "Chapter15.pdf"},
+            {"title": "Vector Calculus", "pages": "1067-1152", "path": "Chapter16.pdf"},
+            {"title": "Second-Order Differential Equations", "pages": "1153-1182", "path": "Chapter17.pdf"}]
     }
 }
