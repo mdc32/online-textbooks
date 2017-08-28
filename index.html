@@ -29,7 +29,7 @@
             }]);
             app.controller("BookController", ["$scope", "$http", "$routeParams", function ($scope, $http, $routeParams) {
                 var self = this;
-                $http.get('textbooks.json')
+                $http.get('textbooks.txt')
                     .then(function(res){
                         self.textbooks = res.data;
                         self.chapters = self.textbooks[self.bookPath].chapters;
