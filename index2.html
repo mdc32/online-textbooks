@@ -25,7 +25,7 @@
                     .then(function(res){
                         //self.textbooks = res.data;
                         console.log(res.data);
-                    });
+                    }).catch(console.error);
             }]);
             app.controller("BookController", ["$scope", "$http", "$routeParams", function ($scope, $http, $routeParams) {
                 var self = this;
