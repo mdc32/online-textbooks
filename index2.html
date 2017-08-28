@@ -24,6 +24,7 @@
                 $http.get('textbooks.json')
                     .then(function(res){
                         self.textbooks = res.data;
+                        console.log(res.data);
                     });
             }]);
             app.controller("BookController", ["$scope", "$http", "$routeParams", function ($scope, $http, $routeParams) {
