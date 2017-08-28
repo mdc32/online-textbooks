@@ -1,14 +1,14 @@
 <div class="col-md-6">
     <ul class="list-group">
         <li class="list-group-item" ng-repeat="chapter in ctrl.leftSide">
-            <h6><a href="/{{ctrl.bookPath}}/{{chapter.path}}">{{chapter.title}}</a> <small>{{chapter.pages}}</small></h6>
+            <h6><a href="{{ctrl.bookPath}}/{{chapter.path}}">{{chapter.title}}</a> <small>{{chapter.pages}}</small></h6>
         </li>
     </ul>
 </div>
 <div class="col-md-6">
     <ul class="list-group">
         <li class="list-group-item" ng-repeat="chapter in ctrl.rightSide">
-            <h6><a href="/{{ctrl.bookPath}}/{{chapter.path}}">{{chapter.title}}</a> <small>{{chapter.pages}}</small></h6>
+            <h6><a href="{{ctrl.bookPath}}/{{chapter.path}}">{{chapter.title}}</a> <small>{{chapter.pages}}</small></h6>
         </li>
     </ul>
 </div>
