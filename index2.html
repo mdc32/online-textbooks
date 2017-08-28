@@ -23,7 +23,7 @@
                 var self = this;
                 $http.get('textbooks.txt')
                     .then(function(res){
-                        //self.textbooks = res.data;
+                        self.textbooks = res.data;
                         console.log(res.data);
                     }).catch(console.error);
             }]);
