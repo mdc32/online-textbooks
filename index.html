@@ -1,16 +1,59 @@
-<html>
-  <head>
-    <title>
-      Textbooks
-    </title>
-  </head>
-  <body>
-    <h1>Textbooks</h1>
-    <a href="macro">AP Macroeconomics</a><br/>
-    <a href="psych">AP Psychology</a><br/>
-    <a href="gov">AP Government and Politics</a><br/>
-    <hr/>
-    <a href="calculus">AP Calculus BC</a><br/>
-    <a href="precalc">Precalculus 300/400</a><br/>
-  </body>
+<html ng-app="textbookApp">
+    <head>
+        <title>
+            Online Textbooks
+        </title>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/cyborg/bootstrap.min.css" rel="stylesheet">
+    </head>
+    <body ng-controller="HomeController as ctrl">
+        <div class="container">
+            <div class="row">
+                <h2><a href="#!" style="color: inherit">Online Textbooks</a> <small>mdc32</small></h3>
+            </div>
+            <div class="row">
+                <ng-view>
+            </div>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+        <script>
+            var app = angular.module("textbookApp", ["ngRoute"]);
+
+            app.controller("HomeController", ["$scope", "$http", function ($scope, $http) {
+                var self = this;
+                $http.get('textbooks.json')
+                    .then(function(res){
+                        self.textbooks = res.data;
+                    });
+            }]);
+
+            app.controller("BookController", ["$scope", "$http", "$routeParams", function ($scope, $http, $routeParams) {
+                var self = this;
+                $http.get('textbooks.json')
+                    .then(function(res){
+                        self.textbooks = res.data;
+                        self.chapters = self.textbooks[self.bookPath].chapters;
+                        self.leftSide = self.chapters.slice(0, Math.ceil(self.chapters.length / 2));
+                        self.rightSide = self.chapters.slice(Math.ceil(self.chapters.length / 2));
+                    });
+
+                self.bookPath = $routeParams.path;
+                console.log(self.bookPath);
+            }]);
+
+            app.config(function ($routeProvider) {
+                $routeProvider
+                .when("/", {
+                    "templateUrl": "home.html",
+                    "controller": "HomeController as ctrl"
+
+                })
+                .when("/book/:path", {
+                    "templateUrl": "book.html",
+                    "controller": "BookController as ctrl"
+                });
+            });
+        </script>
+    </body>
 </html>
